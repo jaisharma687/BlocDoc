@@ -1,10 +1,47 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import axios from "axios";
+
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+const projectSecretKey = process.env.NEXT_PUBLIC_PROJECT_KEY;
 
 export default function Home() {
-  return (  
-  <>
-   
+  const [uploadedImages, setUploadedImages] = useState([]);
+  const [file, setFile] = useState(null);
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (file) {
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+
+        const resFile = await axios({
+          method: "post",
+          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          data: formData,
+          headers: {
+            pinata_api_key: projectId,
+            pinata_secret_api_key: projectSecretKey,
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+        const ImgHash = resFile.data.IpfsHash;
+        setUploadedImages((prev) => [...prev, { path: ImgHash }]);
+      } catch (e) {
+        alert("Unable to upload image to Pinata");
+      }
+    }
+  };
+
+  return (
+    <>
     <section className=" body-font relative z-10 text-white">
       <div className="container px-5 py-24 mx-auto">
         <div className="text-center mb-20">
@@ -71,13 +108,47 @@ export default function Home() {
         <div className="flex justify-center items-center m-10 ">
   <button type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 w-55 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Secure Your Files Today</button>
 </div>
-
-
-      
       </div>
     </section>
+    
+    <div className="app">
+      <div className="app__container">
+        <div className="container">
+          <h1>IPFS Uploader</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="file-upload" className="custom-file-upload">
+              Select File
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              name="file"
+              onChange={handleFileChange}
+            />
+            <button className="button" type="submit">
+              Upload File
+            </button>
+          </form>
+        </div>
+        <div className="data">
+          {uploadedImages.map((image, index) => (
+            <div key={image.path + index}>
+              <img
+                className="image"
+                alt={`Uploaded #${index + 1}`}
+                src={`https://skywalker.infura-ipfs.io/ipfs/${image.path}`}
+                style={{ maxWidth: "400px", margin: "15px" }}
+              />
+              <h4>Link to IPFS:</h4>
+              <a href={`https://skywalker.infura-ipfs.io/ipfs/${image.path}`}>
+                <h3>{`https://skywalker.infura-ipfs.io/ipfs/${image.path}`}</h3>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
 
-    {/* STEPS SECTION  */}
     <section className=" body-font relative z-10 text-white">
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
         <div className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
@@ -152,6 +223,12 @@ export default function Home() {
         </div>
       </div>
     </section>
-  </>
+    </>
   );
 }
+
+
+
+    {/* 
+
+     */}
