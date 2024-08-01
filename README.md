@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BlocDoc README
 
-## Getting Started
+Welcome to **BlocDoc**, a Web3 application that allows users to securely and efficiently upload files to the InterPlanetary File System (IPFS) using their crypto wallets. BlocDoc leverages the power of decentralized storage through the Pinata API, ensuring that your files are stored in a distributed, immutable, and secure manner.
 
-First, run the development server:
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+BlocDoc is designed to provide a seamless experience for users to upload and manage their files on IPFS. By connecting their wallet, users can interact with the decentralized storage network, ensuring that their data remains secure and tamper-proof.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Web3 Wallet Integration**: Connect your crypto wallet to authenticate and interact with BlocDoc.
+- **Decentralized Storage**: Upload files to IPFS using the Pinata API.
+- **Secure and Immutable**: Ensure that your files are stored in a decentralized and immutable manner.
+- **User-Friendly Interface**: Easy-to-use interface for managing your files.
 
-## Learn More
+## Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+Before you begin, ensure you have met the following requirements:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- You have a crypto wallet (e.g., MetaMask) installed and set up.
+- You have a Pinata account and API key.
+- You have Node.js and npm installed on your machine.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your-username/blocdoc.git
+    cd blocdoc
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Set Up Environment Variables**:
+    Create a `.env` file in the root directory and add your Pinata API credentials:
+    ```env
+    REACT_APP_PINATA_API_KEY=your-pinata-api-key
+    REACT_APP_PINATA_SECRET_API_KEY=your-pinata-secret-api-key
+    ```
+
+4. **Start the Application**:
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+1. **Connect Your Wallet**:
+    - Open the application in your browser.
+    - Connect your Web3 wallet (e.g., MetaMask).
+
+2. **Upload Files**:
+    - Use the upload interface to select and upload files.
+    - Your files will be uploaded to IPFS via the Pinata API and you will receive a unique IPFS hash for each file.
+
+3. **Manage Files**:
+    - View your uploaded files and their respective IPFS hashes.
+    - Manage your files directly from the BlocDoc interface.
+
+## Contributing
+
+We welcome contributions to BlocDoc! To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add a new feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Create a pull request.
+
+Please ensure that your code adheres to our coding standards and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using BlocDoc! We hope you enjoy the seamless and secure decentralized storage experience.
+
+---
+
+If you have any questions or need further assistance, please feel free to open an issue or contact us directly.
+
+---
+
+Happy uploading!
+
+---
+
+*This README was last updated on [Date].*
