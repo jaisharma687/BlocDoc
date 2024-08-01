@@ -1,0 +1,5 @@
+#1f4047 - Midnight Green
+#0d1b1e - Rich Black
+#3e78b2 - UCLA Blue
+#ffffff - White
+#bb342f - Persian Red
