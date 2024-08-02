@@ -6,7 +6,7 @@ import axios from "axios";
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 const projectSecretKey = process.env.NEXT_PUBLIC_PROJECT_KEY;
 
-export default function Home() {
+export default function Upload() {
     const [uploadedImages, setUploadedImages] = useState([]);
     const [file, setFile] = useState(null);
 
