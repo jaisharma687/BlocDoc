@@ -9,6 +9,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        user-select: none;
     }
     .h1{
         @apply text-[40px] xl:text-[60px] leading-[1.1] font-semibold;
