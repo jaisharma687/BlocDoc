@@ -1,6 +1,16 @@
+"use client"
+
 import Image from "next/image";
+import { useState } from "react"
+import ConnectWallet from "@/components/ConnectWallet";
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
+  const [account, setAccount] = useState(null)
+
+  const redirectAbout = ()=>{
+    window.location.href = "/about"
+  }
   return (
     <>
     <section className="h-full">
@@ -12,6 +22,14 @@ export default function Home() {
             <p className="mb-9 text-white/80 hover:text-red/80">
             BlocDoc empowers you to take control of your digital assets by leveraging the power of Web3 technology. Connect your wallet and effortlessly upload your files to the InterPlanetary File System (IPFS), ensuring secure, immutable, and decentralized storage. With BlocDoc, your data remains in your hands, protected and accessible anytime, anywhere.
             </p>
+            <div className="flex justify-center xl:justify-start gap-8">
+              <ConnectWallet account={account} setAccount={setAccount} />
+              <Button
+                onClick={redirectAbout}
+                className='bg-red text-primary hover:bg-red-hover'>
+                About
+                </Button>
+            </div>
           </div>
           {/* photo */}
           <div className="w-full h-full relative">
