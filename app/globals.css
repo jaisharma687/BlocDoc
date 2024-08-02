@@ -10,6 +10,8 @@
         background-position: center;
         background-repeat: no-repeat;
         user-select: none;
+        margin: 0;
+        padding: 0;
     }
     .h1{
         @apply text-[40px] xl:text-[60px] leading-[1.1] font-semibold;
@@ -19,5 +21,8 @@
     }
     .h3{
         @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    }
+    .selectable {
+        user-select: text;
     }
 }
