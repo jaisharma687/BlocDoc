@@ -5,6 +5,10 @@
 @layer base {
     body {
         @apply font-primary bg-primary text-white leading-loose;
+        background-image: url('/assets/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .h1{
         @apply text-[40px] xl:text-[60px] leading-[1.1] font-semibold;
