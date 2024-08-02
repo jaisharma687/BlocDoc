@@ -15,14 +15,14 @@ const stairAnimation={
 
 // Reverse Index for staggered delay
 const reverseIndex = (index)=>{
-    const totalSteps = 384;
+    const totalSteps = 12;
     return totalSteps - index - 1;
 } 
 
 const Stairs = () => {
     return (
         <>
-        {[...Array(384)].map((_,index)=>{
+        {[...Array(12)].map((_,index)=>{
             return (<motion.div 
             key={index} 
             variants={stairAnimation}
@@ -32,7 +32,7 @@ const Stairs = () => {
             transition={{
                 duration:0.4,
                 ease:'easeInOut',
-                delay: reverseIndex(index)*0.0015625,
+                delay: reverseIndex(index)*0.025,
             }}
             className="h-full w-full bg-green relative"
             />);
