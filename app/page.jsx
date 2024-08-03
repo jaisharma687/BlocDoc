@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
 import ConnectWallet from "@/components/ConnectWallet";
 import { Button } from '@/components/ui/button';
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [account, setAccount] = useState(null);
@@ -13,7 +14,14 @@ export default function Home() {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 1.4, duration: 0.4, ease: "easeIn" }
+      }}
+      className="h-full w-full"
+    >
       <section className="h-full">
         <div className="container mx-auto h-full">
           <div className="flex flex-col items-center justify-center xl:flex-row xl:pt-8 xl:pb-24 pt-2 pb-6 w-full">
@@ -50,6 +58,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </motion.div>
   );
 }
