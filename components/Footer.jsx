@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="bg-secondary">
         <div className="container">
-            <div className="flex justify-between items-center py-10">
+            <div className="flex justify-between items-center xl:py-10 pt-5 pb-5 gap-8">
             <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
                 <Link href="/">
                     <h1 className="text-4xl font-semibold">
@@ -15,7 +15,7 @@ const Footer = () => {
                     </h1>
                 </Link>
             </div>
-            <div className="flex items-center gap-5">
+            <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-right flex items-center xl:gap-5 gap-2">
             <Link
                 aria-label="GitHub"
                 href="https://github.com/Siddhantbg/BlocDoc"
@@ -33,7 +33,7 @@ const Footer = () => {
                 href="https://github.com/Siddhantbg/BlocDoc"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-            ><div className="text-xl font-semibold hover:text-red">GitHub Repository</div></Link>
+            ><div className="lg:text-xl font-semibold hover:text-red">GitHub Repository</div></Link>
             </div>
 
             </div>
