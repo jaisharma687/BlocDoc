@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="bg-secondary">
+        <footer className="bg-primary">
         <div className="container">
             <div className="flex justify-between items-center xl:py-10 pt-5 pb-5 gap-8">
             <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
@@ -22,7 +22,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
             >
-                <div className="w-[30px] h-[30px] xl:w-[50px] xl:h-[50px] bg-primary text-accent rounded-md flex items-center justify-center hover:text-accent-hover">
+                <div className="w-[30px] h-[30px] xl:w-[50px] xl:h-[50px] bg-green text-accent rounded-md flex items-center justify-center hover:text-accent-hover">
                     <div className="text-[28px]">
                         <FaGithub />
                     </div>
