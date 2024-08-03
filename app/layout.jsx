@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={jetbrainsMono.variable}>
+      <body className={`${jetbrainsMono.variable} h-full`}>
         <Toaster
           position="top-center"
           reverseOrder={false}
@@ -37,12 +37,16 @@ export default function RootLayout({ children }) {
             },
           }}
         />
-        <Header />
-        <StairTransition />
-        <PageTransition>
-          {children}
-        </PageTransition>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <StairTransition />
+          <main className="flex-grow">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
