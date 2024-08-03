@@ -42,8 +42,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const apiURI = process.env.NEXT_PUBLIC_API_URL;
-    fetch(`${apiURI}/send`, {
+    fetch('/api/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +63,7 @@ const Contact = () => {
       // Handle success case
     })
     .catch((error) => {
-      toast.error("Message not sent.")
+      toast.error("Message not sent.");
       console.error('Error:', error);
       setError(error.toString());
       // Handle error case
