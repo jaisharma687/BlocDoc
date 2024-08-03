@@ -1,8 +1,8 @@
 "use client"
-
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import axios from "axios"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from 'react';
@@ -42,7 +42,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/send', {
+    const apiURI = process.env.NEXT_PUBLIC_API_URL;
+    fetch(`${apiURI}/send`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -128,7 +129,6 @@ const Contact = () => {
               />
               {/* submit */}
               <Button type="submit" size="md" className="max-w-40">Send Message</Button>
-              {error && <p className="text-red-500 mt-4">{error}</p>}
             </form>
           </div>
           {/* info */}
