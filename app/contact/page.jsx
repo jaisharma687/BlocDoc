@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from 'react';
+import toast from "react-hot-toast"
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -51,13 +52,39 @@ const Contact = () => {
     .then((response) => response.json())
     .then((data) => {
       console.log('Success:', data);
+      toast.success('Message sent successfully.');
+      setFormData({
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
       // Handle success case
     })
     .catch((error) => {
+      toast.error("Message not sent.")
       console.error('Error:', error);
       setError(error.toString());
       // Handle error case
     });
+  };
+
+  const customToast = (message) => {
+    toast.custom((t) => (
+      <div
+        style={{
+          borderRadius: '10px',
+          background: '#1F4047',
+          color: '#fff',
+          padding: '10px 20px',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        {message}
+      </div>
+    ));
   };
 
   return (
@@ -86,16 +113,17 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" name="firstname" placeholder="First Name" onChange={handleChange} />
-                <Input type="text" name="lastname" placeholder="Last Name" onChange={handleChange} />
-                <Input type="email" name="email" placeholder="Email" onChange={handleChange} />
-                <Input type="text" name="phone" placeholder="Phone Number" onChange={handleChange} />
+                <Input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleChange} />
+                <Input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleChange} />
+                <Input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+                <Input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
               </div>
               {/* TextArea */}
               <Textarea
                 className="h-[200px]"
                 name="message"
                 placeholder="Type your message here."
+                value={formData.message}
                 onChange={handleChange}
               />
               {/* submit */}
@@ -112,7 +140,7 @@ const Contact = () => {
                   rounded-md flex items-center justify-center hover:text-accent-hover">
                     <div className="text-[28px]" onClick = {(item.title==='Email')?null: () => {
                       navigator.clipboard.writeText(item.description);
-                      alert('Copied to clipboard: '+ item.description);
+                      customToast('Copied to clipboard: '+ item.description);
                       }}>
                         {
                           item.title === 'Email' ?
