@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${jetbrainsMono.variable} h-full`}>
         <Toaster
-          position="top-center"
+          position="bottom-center"
           reverseOrder={false}
           toastOptions={{
             style: {
