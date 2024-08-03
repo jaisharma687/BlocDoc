@@ -16,7 +16,7 @@ app.post('/send', (req, res) => {
     const { firstname, lastname, email, phone, message } = req.body;
 
     const transporter = nodemailer.createTransport({
-        service: 'process.env.HOST',
+        host: process.env.HOST,
         auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
