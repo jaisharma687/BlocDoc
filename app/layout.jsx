@@ -22,27 +22,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body className={jetbrainsMono.variable}>
         <Toaster
           position="top-center"
           reverseOrder={false}
           toastOptions={{
-              style: {
-                borderRadius: '10px',
-                background: '#1F4047',
-                color: '#fff',
-              },
+            style: {
+              borderRadius: '10px',
+              background: '#1F4047',
+              color: '#fff',
+            },
           }}
         />
         <Header />
         <StairTransition />
         <PageTransition>
-        {children}
+          {children}
         </PageTransition>
         <Footer />
       </body>
     </html>
   );
 }
-
-
