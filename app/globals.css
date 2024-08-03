@@ -6,6 +6,8 @@
     html, body {
         @apply w-full h-full m-0 p-0 overflow-x-hidden;
         box-sizing: border-box;
+        height: 100%;
+        margin: 0;
     }
     
     *, *::before, *::after {
@@ -35,5 +37,12 @@
 
     .selectable {
         user-select: text;
+    }
+    .min-h-screen {
+        min-height: 100vh;
+    }
+    
+    .flex-grow {
+        flex-grow: 1;
     }
 }
