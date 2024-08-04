@@ -43,14 +43,7 @@ Before you begin, ensure you have met the following requirements:
     npm install
     ```
 
-3. **Set Up Environment Variables**:
-    Create a `.env` file in the root directory and add your Pinata API credentials:
-    ```env
-    REACT_APP_PINATA_API_KEY=your-pinata-api-key
-    REACT_APP_PINATA_SECRET_API_KEY=your-pinata-secret-api-key
-    ```
-
-4. **Start the Application**:
+3. **Start the Application**:
     ```bash
     npm start
     ```
