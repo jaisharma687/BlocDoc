@@ -65,7 +65,7 @@ export default function Upload() {
         <div className="flex flex-col justify-center items-center">
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col justify-center items-center gap-10">
-                    <div>
+                    <div className="flex flex-col gap-3">
                         <Button onClick={handleButtonClick}>
                             Choose File
                         </Button>
@@ -78,7 +78,7 @@ export default function Upload() {
                         />
                         <span id="file-chosen" className="mx-5">{fileName}</span>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-10">
                         <Button type="submit" >
                             Upload
                         </Button>
