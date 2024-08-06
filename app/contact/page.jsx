@@ -42,7 +42,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/send', {
+    fetch('http://localhost:5000/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
