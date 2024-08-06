@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -18,8 +18,8 @@ app.post('/send', (req, res) => {
     const transporter = nodemailer.createTransport({
         host: process.env.HOST,
         auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         }
     });
 
@@ -38,12 +38,12 @@ app.post('/send', (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-        return res.status(500).json({ error: error.toString() });
+            return res.status(500).json({ error: error.toString() });
         }
         res.status(200).json({ message: 'Email sent: ' + info.response });
     });
-    });
+});
 
-    app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-    });
+});
