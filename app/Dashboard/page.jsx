@@ -10,11 +10,6 @@ export default function Home() {
     { id: 3, name: "CDC_unfair.pdf", size: "90MB", type: "pdf", date: "991BC" }
   ]);
 
-  const handleEdit = (file) => {
-    console.log("Edit file:", file);
-    // Add your edit logic here
-  };
-
   const handleDelete = (fileId) => {
     console.log("Delete file ID:", fileId);
     // Add your delete logic here
