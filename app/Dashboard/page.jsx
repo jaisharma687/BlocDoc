@@ -29,6 +29,9 @@ export default function Home() {
       </div>
       {/* FILE UPLOAD SECTION */}
       <Upload />
+      <div className="hidden">
+        <ConnectWallet account={account} setAccount={setAccount} />
+      </div>
       {/* FILE LIST */}
       <div className="relative overflow-x-auto mt-10">
         <table className="w-full text-sm text-left text-gray-400">
