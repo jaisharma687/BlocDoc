@@ -22,8 +22,9 @@ export default function Home() {
     <>
       <div className="flex items-center justify-center mb-10">
         <div className="inline-flex rounded-md shadow-sm" role="group">
-          <div className="px-4 py-2 text-sm font-medium text-gray-200 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
-            Wallet ID: {account ? `${account}` : "Not Connected"}
+          <div className="px-4 py-2 text-sm font-medium text-gray-200 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700 flex flex-col items-center justify-center">
+            <div>Wallet ID:</div>
+            <div>{account ? `${account}` : "Not Connected"}</div>
           </div>
         </div>
       </div>
