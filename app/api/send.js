@@ -1,11 +1,15 @@
+// pages/api/send.js
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { firstname, lastname, email, phone, message } = req.body;
 
+    // Create a Nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.HOST,
+      port: 587, // Use the appropriate port for your email service
+      secure: false, // Set to true if using port 465
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -33,6 +37,6 @@ export default async function handler(req, res) {
       res.status(500).json({ error: 'Failed to send email' });
     }
   } else {
-    res.status(405).json({ error: 'Method not allowed' });
+    res.status(405).json({ error: 'Method Not Allowed' });
   }
 }
