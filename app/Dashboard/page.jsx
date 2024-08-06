@@ -1,6 +1,6 @@
 "use client";
 
-import Upload from "@/components/Upload";
+import Upload from "@/components/upload";
 import { useState } from "react";
 import ConnectWallet from "@/components/ConnectWallet";
 
