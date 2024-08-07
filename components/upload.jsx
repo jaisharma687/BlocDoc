@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { Input } from "./ui/input"; // Ensure this import is correct or remove it if not used
+import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 const projectSecretKey = process.env.NEXT_PUBLIC_PROJECT_KEY;
@@ -32,9 +33,26 @@ export default function Upload() {
         setFile(null);
         setFileName("No file chosen");
         document.getElementById("file-upload").value = null;
-        setUploadedImages([]); // Clear the IPFS hash list
+        setUploadedImages([]);
     };
 
+    const customToast = (message) => {
+        toast.custom((t) => (
+            <div
+            style={{
+                borderRadius: '10px',
+                background: '#1F4047',
+                color: '#fff',
+                padding: '10px 20px',
+                display: 'flex',
+                alignItems: 'center',
+            }}
+            >
+            {message}
+            </div>
+        ));
+    };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (file) {
@@ -56,7 +74,7 @@ export default function Upload() {
                 const ImgHash = resFile.data.IpfsHash;
                 setUploadedImages((prev) => [...prev, { path: ImgHash }]);
             } catch (e) {
-                alert("Unable to upload image to Pinata");
+                customToast("Unable to upload image to Pinata");
             }
         }
     };
