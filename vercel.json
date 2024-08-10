@@ -1,0 +1,9 @@
+{
+    "env": {
+      "NEXT_PUBLIC_API_URL": "https://yourdomain.com/send",
+      "HOST": "smtp.yourmailhost.com",
+      "EMAIL_USER": "your-email@example.com",
+      "EMAIL_PASS": "your-email-password"
+    }
+  }
+  

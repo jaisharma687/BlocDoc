@@ -10,7 +10,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://blocdoc.netlify.app/contact', // Replace with your actual frontend domain
+  methods: ['POST']
+}));
 
 app.post('/send', (req, res) => {
     const { firstname, lastname, email, phone, message } = req.body;
