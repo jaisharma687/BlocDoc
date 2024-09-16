@@ -157,7 +157,7 @@ const Contact = () => {
               >
                 Send Message
               </Button>
-              {state.succeeded && <p>Thanks for your message!</p>}
+              {state.succeeded && customToast("Form sent successfully")}
             </form>
           </div>
           {/* Info Section */}
