@@ -10,7 +10,7 @@ export default function Home() {
   const [account, setAccount] = useState(null);
 
   const redirectAbout = () => {
-    window.location.href = "/about";
+    window.location.href = "/dashboard";
   };
 
   return (
@@ -36,9 +36,9 @@ export default function Home() {
               <div className="flex justify-center xl:justify-start gap-8">
                 <ConnectWallet account={account} setAccount={setAccount} />
                 <Button
-                  onClick={redirectAbout}
+                  onClick={redirectDashboard}
                   className='bg-red text-primary hover:bg-red-hover'>
-                  About
+                  Dashboard
                 </Button>
               </div>
             </div>

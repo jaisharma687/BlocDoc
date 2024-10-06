@@ -7,17 +7,6 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const [account, setAccount] = useState(null);
-  const [files, setFiles] = useState([
-    { id: 1, name: "Shreya.txt", size: "10MB", type: "txt", date: "2099" },
-    { id: 2, name: "Microsot.word", size: "20MB", type: "word", date: "1999" },
-    { id: 3, name: "CDC_unfair.pdf", size: "90MB", type: "pdf", date: "991BC" }
-  ]);
-
-  const handleDelete = (fileId) => {
-    console.log("Delete file ID:", fileId);
-    // Add your delete logic here
-    setFiles(files.filter(file => file.id !== fileId));
-  };
 
   return (
     <>
@@ -41,42 +30,6 @@ export default function Home() {
       <Upload />
       <div className="hidden">
         <ConnectWallet account={account} setAccount={setAccount} />
-      </div>
-      {/* FILE LIST */}
-        <div className="flex justify-center items-center m-10">
-      <div className="relative overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-400">
-          <thead className="text-xs uppercase bg-green text-white/60">
-            <tr>
-              <th scope="col" className="px-6 py-3">File Name</th>
-              <th scope="col" className="px-6 py-3">File Size</th>
-              <th scope="col" className="px-6 py-3">File Type</th>
-              <th scope="col" className="px-6 py-3">Date</th>
-              <th scope="col" className="px-6 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {files.map(file => (
-              <tr className="border-b bg-primary border-primary" key={file.id}>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-200 whitespace-nowrap">
-                  {file.name}
-                </th>
-                <td className="px-6 py-4">{file.size}</td>
-                <td className="px-6 py-4">{file.type}</td>
-                <td className="px-6 py-4">{file.date}</td>
-                <td className="px-6 py-4">
-                  <button
-                    onClick={() => handleDelete(file.id)}
-                    className="text-red-500 hover:underline"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
       </div>
       </motion.div>
     </>
