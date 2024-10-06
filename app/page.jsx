@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   const [account, setAccount] = useState(null);
 
-  const redirectAbout = () => {
+  const redirectDashboard = () => {
     window.location.href = "/dashboard";
   };
 
